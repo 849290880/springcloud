@@ -1,0 +1,31 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka/
+spring:
+  application:
+    name: CLIENT
+  datasource:
+    url: jdbc:mysql://localhost:3306/cloud_db_one
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      stat-view-servlet:
+        allow: true
+server:
+  port: 8080
+mybatis:
+  type-aliases-package: com.hai.pojo
+  mapper-locations: classpath:mapper/*.xml
+  mapper:
+    mappers: com.hai.MyMapper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
